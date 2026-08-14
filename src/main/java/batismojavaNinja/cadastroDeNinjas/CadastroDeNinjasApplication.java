@@ -1,4 +1,4 @@
-package java.batismojavaNinja.cadastroDeNinjas;
+package batismojavaNinja.cadastroDeNinjas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

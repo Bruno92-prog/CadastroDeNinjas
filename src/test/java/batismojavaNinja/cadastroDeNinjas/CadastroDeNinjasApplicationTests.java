@@ -1,4 +1,4 @@
-package java.batismojavaNinja.cadastroDeNinjas;
+package batismojavaNinja.cadastroDeNinjas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
