@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
+
 public class MissoesModel {
 
     @Id
