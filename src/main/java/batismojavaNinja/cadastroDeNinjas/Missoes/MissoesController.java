@@ -1,15 +1,34 @@
 package batismojavaNinja.cadastroDeNinjas.Missoes;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping
+@RequestMapping ("missoes")
 public class MissoesController {
-    @GetMapping("/olaMissoes")
-    public String olaMissoes(){
-        return "Essa é minha primeira menssagem nesta rota!";
+
+    // GET -- Mandar uma requisição para mostrar as missoes
+    @GetMapping("/listar")
+    public String ListarMissoes(){
+        return "Missoes listadas com sucesso";
     }
+
+    // Post -- Mandar uma requisição para criar as missoes
+    @PostMapping("/criar")
+    public String criarMissao(){
+        return "Missão criada com sucesso";
+    }
+
+    // PUT -- Mandar uma requisição para alterar uma missao
+    @PutMapping("/alterar")
+    public String alterarMissao(){
+        return "Missao alterada com sucesso";
+    }
+
+    // Delete -- Mandar uma requisição para deletar uma missoa
+    @DeleteMapping("/deletar")
+    public String deletarMissao(){
+        return "Missao deletada com sucesso";
+    }
+
 }
