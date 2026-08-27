@@ -1,6 +1,7 @@
 package batismojavaNinja.cadastroDeNinjas.Missoes;
 
 import batismojavaNinja.cadastroDeNinjas.Ninjas.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class MissoesModel {
 
     // @OneToMany - um pra muitos , uma missao pode ter varios ninjas
     @OneToMany(mappedBy = "missoes")
+    @JsonIgnore
     List<NinjaModel> ninjasNaMissao = new ArrayList<>();
 
     // Construtores
