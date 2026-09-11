@@ -1,0 +1,490 @@
+<!
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabela de Ninjas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================================
+           PÁGINA
+        ========================================= */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            color: #1f2937;
+            padding: 35px;
+        }
+
+
+        /* =========================================
+           TÍTULO
+        ========================================= */
+
+        h1 {
+            text-align: center;
+            color: #172033;
+            font-size: 32px;
+            margin-bottom: 28px;
+        }
+
+
+        /* =========================================
+           TABELA
+        ========================================= */
+
+        table {
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+
+            background: #ffffff;
+
+            border-collapse: separate;
+            border-spacing: 0;
+
+            border-radius: 12px;
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+            table-layout: auto;
+        }
+
+
+        /* =========================================
+           CABEÇALHO
+        ========================================= */
+
+        thead {
+            background: #1e293b;
+            color: white;
+        }
+
+        th {
+            height: 50px;
+
+            padding: 14px 14px;
+
+            text-align: left;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.4px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           LINHAS
+        ========================================= */
+
+        tbody tr {
+            height: 105px;
+
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+
+
+        /* =========================================
+           CÉLULAS
+        ========================================= */
+
+        td {
+            padding: 12px 14px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            vertical-align: middle;
+
+            font-size: 14px;
+
+            white-space: nowrap;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* =========================================
+           ID
+        ========================================= */
+
+        td:nth-child(1) {
+            color: #334155;
+            font-weight: 500;
+        }
+
+
+        /* =========================================
+           IMAGEM
+        ========================================= */
+
+        td:nth-child(2) {
+            width: 105px;
+
+            text-align: center;
+
+            padding: 8px 12px;
+        }
+
+
+        /*
+            O segredo aqui é:
+
+            object-fit: contain;
+
+            Assim a imagem inteira é colocada
+            dentro do círculo sem cortar cabeça
+            nem pernas.
+        */
+
+        td:nth-child(2) img {
+            width: 78px;
+            height: 78px;
+
+            display: block;
+
+            margin: 0 auto;
+
+            object-fit: contain;
+
+            object-position: center center;
+
+            background: #f8fafc;
+
+            border-radius: 50%;
+
+            border: 3px solid #e2e8f0;
+
+            padding: 3px;
+
+            transition: all 0.25s ease;
+        }
+
+
+        /* efeito ao passar o mouse */
+
+        td:nth-child(2) img:hover {
+            transform: scale(1.06);
+
+            border-color: #94a3b8;
+        }
+
+
+        /* =========================================
+           NOME
+        ========================================= */
+
+        td:nth-child(3) {
+            min-width: 150px;
+
+            font-weight: 700;
+
+            color: #172033;
+        }
+
+
+        /* =========================================
+           IDADE
+        ========================================= */
+
+        td:nth-child(4) {
+            width: 75px;
+        }
+
+
+        /* =========================================
+           EMAIL
+        ========================================= */
+
+        td:nth-child(5) {
+            min-width: 170px;
+
+            color: #475569;
+        }
+
+
+        /* =========================================
+           RANK
+        ========================================= */
+
+        td:nth-child(6) {
+            min-width: 100px;
+
+            font-weight: 700;
+
+            color: #4338ca;
+        }
+
+
+        /* =========================================
+           MISSÕES
+        ========================================= */
+
+        td:nth-child(7) {
+            min-width: 300px;
+
+            max-width: 400px;
+
+            color: #475569;
+
+            white-space: normal;
+
+            line-height: 1.5;
+        }
+
+
+        /* texto da missão */
+
+        td:nth-child(7) span {
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           AÇÕES
+        ========================================= */
+
+        td:nth-child(8) {
+            min-width: 250px;
+
+            text-align: center;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           BOTÕES
+        ========================================= */
+
+        td:nth-child(8) a {
+            display: inline-block;
+
+            padding: 9px 13px;
+
+            margin: 2px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: all 0.2s ease;
+        }
+
+
+        /* =========================================
+           VER DETALHES
+        ========================================= */
+
+        td:nth-child(8) a:nth-child(1) {
+            background: #e0f2fe;
+
+            color: #0369a1;
+        }
+
+        td:nth-child(8) a:nth-child(1):hover {
+            background: #0284c7;
+
+            color: white;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           ALTERAR
+        ========================================= */
+
+        td:nth-child(8) a:nth-child(2) {
+            background: #fef3c7;
+
+            color: #92400e;
+        }
+
+        td:nth-child(8) a:nth-child(2):hover {
+            background: #f59e0b;
+
+            color: white;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           DELETAR
+        ========================================= */
+
+        td:nth-child(8) a:nth-child(3) {
+            background: #fee2e2;
+
+            color: #b91c1c;
+        }
+
+        td:nth-child(8) a:nth-child(3):hover {
+            background: #dc2626;
+
+            color: white;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           QUANDO NÃO HÁ MISSÃO
+        ========================================= */
+
+        td:nth-child(7) span[th\:if] {
+            color: #94a3b8;
+        }
+
+
+        /* =========================================
+           RESPONSIVIDADE
+        ========================================= */
+
+        @media (max-width: 1200px) {
+
+            body {
+                padding: 20px;
+            }
+
+            table {
+                display: block;
+
+                overflow-x: auto;
+
+                white-space: nowrap;
+            }
+
+            tbody tr {
+                height: 100px;
+            }
+
+            td:nth-child(7) {
+                min-width: 280px;
+            }
+        }
+
+
+        /* =========================================
+           CELULAR
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 25px;
+
+                margin-bottom: 20px;
+            }
+
+            table {
+                min-width: 1100px;
+            }
+
+            td:nth-child(2) img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+
+        /* =========================================
+           ÁREA DO BOTÃO ADICIONAR (NOVO)
+        ========================================= */
+        .header-actions {
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-adicionar {
+            display: inline-block;
+            padding: 11px 20px;
+            background: #10b981;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-adicionar:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Ninjas</h1>
+<!-- O BOTÃO FOI ADICIONADO AQUI, LOGO ANTES DA TABELA -->
+<div class="header-actions">
+    <a th:href="@{/ninjas/ui/adicionar}" class="btn-adicionar">+ Adicionar Novo Ninja</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Rank</th>
+            <th>Missões</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ninja : ${ninjas}">
+            <td th:text = "${ninja.id}"> </td>  <td>
+            <img th:src = "${ninja.imgUrl}" width ="200px" height="200px"> </td>
+            <td th:text = "${ninja.nome}"> </td>
+            <td th:text = "${ninja.idade}"> </td>
+            <td th:text = "${ninja.email}"> </td>
+            <td th:text = "${ninja.rank_ninja}"> </td>
+            <td>
+                <span th:if="${ninja.missoes}"><span th:text="${ninja.missoes.nomeDaMissao}"></span>, Dificuldade: <span th:text="${ninja.missoes.rank}"></span>, Local da Missão<span th:text="${ninja.missoes.localDaMissao}"></span></span>
+                <span th:if="${ninja.missoes == null}">Sem Missões cadastradas para o ninja</span>
+            </td>
+            <td>
+                <a th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}">Ver Detalhes</a>
+                <a th:href="@{/ninjas/ui/alterar/{id}(id=${ninja.id})}">Alterar</a>
+                <a th:href="@{/ninjas/ui/deletar/{id}(id=${ninja.id})}">Deletar</a>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

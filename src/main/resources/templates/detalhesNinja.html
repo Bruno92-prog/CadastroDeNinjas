@@ -1,0 +1,207 @@
+<!
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhe do Ninja</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================================
+           PÁGINA
+        ========================================= */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            color: #1f2937;
+            padding: 35px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* =========================================
+           TÍTULO PRINCIPAL
+        ========================================= */
+
+        h1 {
+            text-align: center;
+            color: #172033;
+            font-size: 32px;
+            margin-bottom: 28px;
+        }
+
+        /* =========================================
+           CARD DE DETALHES
+        ========================================= */
+
+        div {
+            background: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Imagem do Ninja estilo Avatar */
+        div img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            object-position: center;
+            background: #f8fafc;
+            border-radius: 50%;
+            border: 4px solid #e2e8f0;
+            padding: 5px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Nome do Ninja */
+        div h2 {
+            color: #172033;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Informações Pessoais */
+        div p {
+            width: 100%;
+            font-size: 15px;
+            color: #475569;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        div p strong {
+            color: #1e293b;
+        }
+
+        div p span {
+            color: #334155;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           SEÇÃO DE MISSÕES
+        ========================================= */
+
+        div h3 {
+            width: 100%;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: #172033;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        /* Tabela de Missões interna */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        thead {
+            background: #1e293b;
+            color: white;
+        }
+
+        th {
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* =========================================
+           BOTÃO VOLTAR
+        ========================================= */
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 11px 22px;
+            background: #1e293b;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(30, 41, 59, 0.15);
+        }
+
+        a:hover {
+            background: #334155;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+<h1>Detalhes do Ninja</h1>
+<div>
+    <img th:src="${ninja.imgUrl}" alt="${ninja.nome}" width="200" />
+    <h2 th:text="${ninja.nome}"></h2>
+    <p><strong>Email:</strong> <span th:text="${ninja.email}"></span></p>
+    <p><strong>Idade:</strong> <span th:text="${ninja.idade}"></span></p>
+    <p><strong>Rank:</strong> <span th:text="${ninja.rank_ninja}"></span></p>
+
+    <h3>Missões:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Dificuldade</th>
+            <th>Local da Missão</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="missao : ${ninja.missoes}">
+            <td th:text="${missao.nomeDaMissao}"></td>
+            <td th:text="${missao.localDaMissao}"></td>
+            <td th:text="${missao.rank}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a href="/ninjas/ui/listar">Voltar para a lista de ninjas</a>
+</body>
+</html>
