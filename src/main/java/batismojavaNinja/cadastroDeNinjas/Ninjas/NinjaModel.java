@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 // Entity ele transforma uma classe em uma entidade do Banco de Dados
@@ -14,6 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@ToString(exclude = "missoes")
+
 
 public class NinjaModel {
 

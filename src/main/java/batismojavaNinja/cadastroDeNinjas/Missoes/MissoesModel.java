@@ -3,6 +3,7 @@ package batismojavaNinja.cadastroDeNinjas.Missoes;
 import batismojavaNinja.cadastroDeNinjas.Ninjas.NinjaModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
+@ToString
 
 public class MissoesModel {
 
