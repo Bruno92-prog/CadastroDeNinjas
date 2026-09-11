@@ -53,10 +53,10 @@ public class NinjaService {
     // depois com DTO e MAPPER
 
     @Autowired
-    private NinjaRepository ninjaRepository;
+    private final NinjaRepository ninjaRepository;
 
     //Criando mapper e construtor
-    private NinjaMapper ninjaMapper;
+    private final NinjaMapper ninjaMapper;
 
     public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
